@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amantara's Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --deep-blue: #2C3E50;
+      --slate-gray: #7F8C8D;
+      --soft-silver: #ECF0F1;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--soft-silver);
+      color: var(--deep-blue);
+    }
+    header {
+      background: var(--deep-blue);
+      color: var(--soft-silver);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 1rem 1rem;
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 5px solid var(--soft-silver);
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      margin: 0.2em 0 0.1em 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      color: var(--soft-silver);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--slate-gray);
+    }
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem 1.2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(44,62,80,0.07);
+    }
+    .activities {
+      display: flex;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .activity {
+      flex: 1;
+      background: var(--soft-silver);
+      border-radius: 10px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border: 1px solid var(--slate-gray);
+    }
+    .activity h3 {
+      margin-top: 0;
+      color: var(--deep-blue);
+    }
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .project-card {
+      flex: 1 1 260px;
+      min-width: 260px;
+      background: var(--soft-silver);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--slate-gray);
+      box-sizing: border-box;
+    }
+    .project-card h4 {
+      margin-top: 0;
+      color: var(--deep-blue);
+    }
+    .contact-links {
+      margin: 1rem 0;
+    }
+    .contact-links a {
+      color: var(--deep-blue);
+      text-decoration: underline;
+      margin-right: 1.2rem;
+      font-weight: 500;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      background: var(--soft-silver);
+      padding: 1.5rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--slate-gray);
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contact-form label {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: var(--deep-blue);
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      border: 1px solid var(--slate-gray);
+      border-radius: 6px;
+      font-size: 1em;
+      background: #fff;
+      color: var(--deep-blue);
+      resize: vertical;
+    }
+    .contact-form button {
+      background: var(--deep-blue);
+      color: var(--soft-silver);
+      border: none;
+      padding: 0.8rem;
+      font-size: 1.1em;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover {
+      background: var(--slate-gray);
+    }
+    footer {
+      background: var(--deep-blue);
+      color: var(--soft-silver);
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 3rem;
+    }
+    @media (max-width: 800px) {
+      .activities, .projects {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://placehold.co/120x120.png?text=Photo" alt="Your Photo" class="profile-pic">
+    <h1>Amantara</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#activities">Activities</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      <!-- Replace this with your own introduction -->
+      I am a passionate data professional with a focus on data collection, processing, and visualization. I love transforming raw data into actionable insights and beautiful visuals. 
+    </p>
+  </section>
+
+  <section id="activities">
+    <h2>Major Activities</h2>
+    <div class="activities">
+      <div class="activity">
+        <h3>Collect</h3>
+        <p>
+          <!-- Write your data collection process here -->
+          Describe your data collection process, sources, or methods.
+        </p>
+      </div>
+      <div class="activity">
+        <h3>Process</h3>
+        <p>
+          <!-- Write your data processing approach here -->
+          Explain how you process, clean, or transform data.
+        </p>
+      </div>
+      <div class="activity">
+        <h3>Visualise</h3>
+        <p>
+          <!-- Write about your visualization approach here -->
+          Share your visualization strategy or favorite tools.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h4>Project One</h4>
+        <p>
+          <!-- Project description -->
+          Brief description of your first project. <br>
+          <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
+        </p>
+      </div>
+      <div class="project-card">
+        <h4>Project Two</h4>
+        <p>
+          <!-- Project description -->
+          Brief description of your second project. <br>
+          <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
+        </p>
+      </div>
+      <div class="project-card">
+        <h4>Project Three</h4>
+        <p>
+          <!-- Project description -->
+          Brief description of your third project. <br>
+          <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-links">
+      <a href="mailto:your.email@example.com" target="_blank" rel="noopener noreferrer">your.email@example.com</a>
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <form class="contact-form" onsubmit="alert('This demo form does not actually send emails. Replace with your own email handler!'); return false;">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Type your message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Amantara. All rights reserved.
+  </footer>
+</body>
+</html>
