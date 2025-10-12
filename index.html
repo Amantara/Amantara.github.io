@@ -1,338 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Hi! I’m Janet Amantara</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Janet Amantara's data portfolio – showcasing projects in data collection, processing, and visualization.">
-  <meta name="keywords" content="Janet Amantara, data portfolio, data collection, data processing, data visualization, analytics, projects, data analysis">
-  <meta name="author" content="Janet Amantara">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janet Amantara | Data Analyst Portfolio</title>
   <style>
     :root {
-      --deep-blue: #2C3E50;
-      --slate-gray: #7F8C8D;
-      --soft-silver: #ECF0F1;
-    }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--soft-silver);
-      color: var(--deep-blue);
-      scroll-behavior: smooth;
-    }
-    header {
-      background: var(--deep-blue);
-      color: var(--soft-silver);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem 1rem 1rem;
-    }
-    .profile-pic {
-      width: 160px;
-      height: 160px;
-      border-radius: 20px;
-      border: 4px solid var(--soft-silver);
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      margin-bottom: 1rem;
-    }
-    .main-title {
-      margin: 0.2em 0 0.1em 0;
-      font-size: 2.5em;
-      letter-spacing: 2px;
-      text-align: center;
-    }
-    .subtitle {
-      font-size: 1.2em;
-      color: var(--slate-gray);
-      margin-top: 0.5em;
-      text-align: center;
-      max-width: 600px;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      color: var(--soft-silver);
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: var(--slate-gray);
-    }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem 1.2rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(44,62,80,0.07);
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .activities {
-      display: flex;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-    .activity {
-      flex: 1;
-      background: var(--soft-silver);
-      border-radius: 10px;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      border: 1px solid var(--slate-gray);
-    }
-    .activity h3 {
-      margin-top: 0;
-      color: var(--deep-blue);
+      --primary: #3B82F6;
+      --text: #1E293B;
+      --background: #F9FAFB;
+      --card: #FFFFFF;
+      --border: #E5E7EB;
+      --accent: #93C5FD;
     }
 
-    /* --- Project Grid Hover Style --- */
-    .project-grid {
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--card);
+      color: var(--text);
+      text-align: center;
+      padding: 3rem 1rem;
+      border-bottom: 1px solid var(--border);
+      animation: fadeIn 1s ease-in;
+    }
+
+    header img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      margin: 0.5rem 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #475569;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 1rem;
+      animation: fadeUp 1s ease both;
+    }
+
+    h2 {
+      border-left: 4px solid var(--primary);
+      padding-left: 10px;
+      color: var(--text);
+    }
+
+    .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
     }
 
     .project-card {
       position: relative;
+      border-radius: 1rem;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(44,62,80,0.2);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--card);
       cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
     }
 
     .project-card img {
       width: 100%;
-      height: 100%;
+      height: 200px;
       object-fit: cover;
-      transition: transform 0.5s ease;
       display: block;
+      transition: transform 0.3s ease;
     }
 
     .project-card:hover img {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
-    .overlay {
+    .project-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(44, 62, 80, 0.85);
+      background: rgba(59, 130, 246, 0.85);
       color: white;
-      opacity: 0;
-      transition: opacity 0.4s ease, transform 0.4s ease;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      padding: 20px;
+      justify-content: center;
       text-align: center;
-      transform: translateY(20px);
-    }
-
-    .overlay h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.3em;
-    }
-
-    .project-card:hover .overlay {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .contact-links {
-      margin: 1rem 0;
-    }
-    .contact-links a {
-      color: var(--deep-blue);
-      text-decoration: underline;
-      margin-right: 1.2rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
       font-weight: 500;
+      padding: 1rem;
     }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
     .contact-form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      margin-top: 1.5rem;
-      background: var(--soft-silver);
-      padding: 1.5rem 1rem;
-      border-radius: 10px;
-      border: 1px solid var(--slate-gray);
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
-    .contact-form label {
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-      color: var(--deep-blue);
-    }
-    .contact-form input,
-    .contact-form textarea {
-      padding: 0.75rem;
-      border: 1px solid var(--slate-gray);
-      border-radius: 6px;
-      font-size: 1em;
-      background: #fff;
-      color: var(--deep-blue);
-      resize: vertical;
-    }
-    .contact-form button {
-      background: var(--deep-blue);
-      color: var(--soft-silver);
-      border: none;
+
+    input, textarea {
       padding: 0.8rem;
-      font-size: 1.1em;
-      border-radius: 6px;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 0.5rem;
       cursor: pointer;
-      font-weight: bold;
-      transition: background 0.2s;
+      font-size: 1rem;
+      transition: background 0.3s ease;
     }
-    .contact-form button:hover {
-      background: var(--slate-gray);
+
+    button:hover {
+      background: #2563EB;
     }
+
     footer {
-      background: var(--deep-blue);
-      color: var(--soft-silver);
       text-align: center;
-      padding: 1rem 0;
-      margin-top: 3rem;
+      padding: 2rem 1rem;
+      color: #64748B;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
     }
-    @media (max-width: 800px) {
-      .activities {
-        flex-direction: column;
-        gap: 1.2rem;
-      }
-      .subtitle {
-        font-size: 1em;
-        max-width: 100%;
-      }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="images/me.png" alt="Photo of Janet Amantara" class="profile-pic">
-    <h1 class="main-title">Hi! I’m Janet Amantara</h1>
-    <p class="subtitle">
-      I collect, process, analyze, and visualize data with precision to drive insightful decisions.
-    </p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#activities">Activities</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <img src="me.png" alt="Janet Amantara">
+    <h1>Janet Amantara</h1>
+    <p>Data Analyst | Power BI | Excel | Data Storytelling</p>
   </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I completed the Data Analysis Program at Generation Ghana, gaining practical experience with tools such as Excel, Python, SQL and Power BI. 
-      Through hands-on projects, I’ve developed skills in data visualization, dashboard design, and translating datasets into actionable insights. I’m committed to continuous learning, deepening my technical expertise, and helping organizations unlock the value of their data. 
-      As a freelancer, I enjoy the freedom to work across diverse industries while building lasting relationships and delivering solutions that make a measurable impact. 
-    </p>
-  </section>
-
-  <section id="activities">
-    <h2>My Analysis Process</h2>
-    <div class="activities">
-      <div class="activity">
-        <h3>Collect</h3>
-        <p>Describe your data collection process, sources, or methods.</p>
-      </div>
-      <div class="activity">
-        <h3>Process</h3>
-        <p>Explain how you process, clean, or transform data.</p>
-      </div>
-      <div class="activity">
-        <h3>Visualise</h3>
-        <p>Share your visualization strategy or favorite tools.</p>
-      </div>
-    </div>
-  </section>
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project-grid">
-      <a href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Tourism%20Performance%20Report.pbix?csf=1&web=1&e=1ATh5o" target="_blank" class="project-card">
-        <img src="images/tourism_report.png" alt="Tourism Performance Report">
-        <div class="overlay">
-          <h3>Tourism Performance Report</h3>
-          <p>Peak tourism performance analysis across months and regions using visits, satisfaction, and revenue data.</p>
-        </div>
-      </a>
+    <div class="projects">
+      <div class="project-card" onclick="window.open('https://your-link-to-tourism-report.com', '_blank')">
+        <img src="tourism_report.png" alt="Tourism Performance Report">
+        <div class="project-overlay">Tourism Performance Report – Analyzing visitor trends and seasonal patterns.</div>
+      </div>
 
-      <a href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Air%20Quality%20Management%20Report.pbix?csf=1&web=1&e=9Q0WYc" target="_blank" class="project-card">
-        <img src="images/air_quality.png" alt="Air Quality Management Report">
-        <div class="overlay">
-          <h3>Air Quality Management Report</h3>
-          <p>Analysis of air pollutant trends and insights for sustainable air quality improvement.</p>
-        </div>
-      </a>
+      <div class="project-card" onclick="window.open('https://your-link-to-air-quality.com', '_blank')">
+        <img src="air_quality.png" alt="Air Quality Dashboard">
+        <div class="project-overlay">Air Quality Dashboard – Exploring pollutant trends across regions.</div>
+      </div>
 
-      <a href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Water%20Quality%20and%20Fish%20Population%20Dashboard.pbix?csf=1&web=1&e=gPLtfb" target="_blank" class="project-card">
-        <img src="images/water_quality.png" alt="Water Quality and Fish Population">
-        <div class="overlay">
-          <h3>Water Quality & Fish Population</h3>
-          <p>Study of water quality factors (pH, nitrogen, turbidity, rainfall, land use) and their effects on fish population.</p>
-        </div>
-      </a>
+      <div class="project-card" onclick="window.open('https://your-link-to-water-quality.com', '_blank')">
+        <img src="water_quality.png" alt="Water Quality Analysis">
+        <div class="project-overlay">Water Quality Analysis – Examining dissolved oxygen and ecosystem health.</div>
+      </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact Me</h2>
-    <div class="contact-links">
-      <a href="mailto:amantarajaneta@gmail.com" target="_blank" rel="noopener noreferrer">E-mail</a>
-      <a href="https://www.linkedin.com/in/janet-aneribabono-amantara/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-    <form class="contact-form" onsubmit="alert('This demo form does not actually send emails. Replace with your own email handler!'); return false;">
-      <label for="Name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="4" placeholder="Type your message" required></textarea>
-
+    <form class="contact-form" action="https://formspree.io/f/mwprwebe" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
 
   <footer>
-    &copy; 2025 Amantara. All rights reserved.
+    © 2025 Janet Amantara. All Rights Reserved.
   </footer>
-
-  <script>
-    // Fade-in animation on scroll
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  </script>
 </body>
 </html>
