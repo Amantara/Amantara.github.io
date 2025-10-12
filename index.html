@@ -86,26 +86,65 @@
       margin-top: 0;
       color: var(--deep-blue);
     }
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-between;
+
+    /* --- Project Grid Hover Style --- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
+
     .project-card {
-      flex: 1 1 260px;
-      min-width: 260px;
-      background: var(--soft-silver);
+      position: relative;
+      overflow: hidden;
       border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid var(--slate-gray);
-      box-sizing: border-box;
+      box-shadow: 0 4px 10px rgba(44,62,80,0.2);
+      cursor: pointer;
     }
-    .project-card h4 {
-      margin-top: 0;
-      color: var(--deep-blue);
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 62, 80, 0.85);
+      color: white;
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      transform: translateY(20px);
+    }
+
+    .overlay h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3em;
+    }
+
+    .overlay a {
+      color: #ECF0F1;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    .project-card:hover .overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .contact-links {
       margin: 1rem 0;
     }
@@ -165,7 +204,7 @@
       margin-top: 3rem;
     }
     @media (max-width: 800px) {
-      .activities, .projects {
+      .activities, .project-grid {
         flex-direction: column;
         gap: 1.2rem;
       }
@@ -178,7 +217,7 @@
 </head>
 <body>
   <header>
-    <img src="https://drive.google.com/file/d/1ivRWU7V1-28PhZvHzL9FVNMrTz-OKyjY/view?usp=drive_link" alt="Me" class="profile-pic">
+    <img src="images/me.png" alt="Photo of Janet Amantara" class="profile-pic">
     <h1 class="main-title">Hi! I’m Janet Amantara</h1>
     <p class="subtitle">
       I collect, process, analyze, and visualize data with precision to drive insightful decisions.
@@ -194,7 +233,6 @@
   <section id="about">
     <h2>About Me</h2>
     <p>
-      <!-- Replace this with your own introduction -->
       I completed the Data Analysis Program at Generation Ghana, gaining practical experience with tools such as Excel, Python, SQL and Power BI. 
       Through hands-on projects, I’ve developed skills in data visualization, dashboard design, and translating datasets into actionable insights. I’m committed to continuous learning, deepening my technical expertise, and helping organizations unlock the value of their data. 
       As a freelancer, I enjoy the freedom to work across diverse industries while building lasting relationships and delivering solutions that make a measurable impact. 
@@ -206,54 +244,58 @@
     <div class="activities">
       <div class="activity">
         <h3>Collect</h3>
-        <p>
-          <!-- Write your data collection process here -->
-          Describe your data collection process, sources, or methods.
-        </p>
+        <p>Describe your data collection process, sources, or methods.</p>
       </div>
       <div class="activity">
         <h3>Process</h3>
-        <p>
-          <!-- Write your data processing approach here -->
-          Explain how you process, clean, or transform data.
-        </p>
+        <p>Explain how you process, clean, or transform data.</p>
       </div>
       <div class="activity">
         <h3>Visualise</h3>
-        <p>
-          <!-- Write about your visualization approach here -->
-          Share your visualization strategy or favorite tools.
-        </p>
+        <p>Share your visualization strategy or favorite tools.</p>
       </div>
     </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="projects">
+    <div class="project-grid">
       <div class="project-card">
-        <h4>Tourism Performance Report</h4>
-        <p> 
-          <!-- Project description -->
-          This project aims to find peak performance at a tourist site taking into considerartions tourist visits, customer satisfaction and Revenue generated. The relationship between customer visits, satisfaction and revenue is visualised across months and regions. High performaning and Low performing months were identified with recommendations to drive revenue across seasons and regions. <br>
-          <a href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Tourism%20Performance%20Report.pbix?csf=1&web=1&e=1ATh5o" target="_blank" rel="noopener noreferrer">View Project</a>
-        </p>
+        <img src="images/tourism_report.png" alt="Tourism Performance Report">
+        <div class="overlay">
+          <h3>Tourism Performance Report</h3>
+          <p>
+            This project explores peak performance at a tourist site using visits, satisfaction, and revenue data. 
+            Trends are visualized across months and regions to identify high and low performing periods, with recommendations for improvement.
+            <br><br>
+            <a href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Tourism%20Performance%20Report.pbix?csf=1&web=1&e=1ATh5o" target="_blank" rel="noopener noreferrer">View Project</a>
+          </p>
+        </div>
       </div>
+
       <div class="project-card">
-        <h4>Air Quality Management Report</h4>
-        <p>
-          <!-- Project description -->
-          This project was conducted with the purpose of finding trends of pollutant levels in Air. <br>
-          <a href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Air%20Quality%20Management%20Report.pbix?csf=1&web=1&e=9Q0WYc" target="_blank" rel="noopener noreferrer">View Project</a>
-        </p>
+        <img src="images/air_quality.png" alt="Air Quality Management Report">
+        <div class="overlay">
+          <h3>Air Quality Management Report</h3>
+          <p>
+            This project identifies pollutant level trends and evaluates their impact on air quality management.
+            <br><br>
+            <a href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Air%20Quality%20Management%20Report.pbix?csf=1&web=1&e=9Q0WYc" target="_blank" rel="noopener noreferrer">View Project</a>
+          </p>
+        </div>
       </div>
+
       <div class="project-card">
-        <h4>Water Quality Parameters and their Effects on Fish Population</h4>
-        <p>
-          <!-- Project description -->
-          This project investigated the various water quality parameters and how they affect the population of fish at different locations across a two month period. The effects of rainfall on water turbidity, the occurance of polution events and major land usage(urban, forest, agriculture) were also studied to identity possible effects on fish population <br>
-          <a href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Water%20Quality%20and%20Fish%20Population%20Dashboard.pbix?csf=1&web=1&e=gPLtfb" target="_blank" rel="noopener noreferrer">View Project</a>
-        </p>
+        <img src="images/water_quality.png" alt="Water Quality Parameters and Fish Population">
+        <div class="overlay">
+          <h3>Water Quality & Fish Population</h3>
+          <p>
+            An analysis of water quality parameters (nitrogen, pH, turbidity, rainfall, land use) and their effects on fish population. 
+            Pollution events and seasonal changes were assessed across multiple locations.
+            <br><br>
+            <a href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Water%20Quality%20and%20Fish%20Population%20Dashboard.pbix?csf=1&web=1&e=gPLtfb" target="_blank" rel="noopener noreferrer">View Project</a>
+          </p>
+        </div>
       </div>
     </div>
   </section>
