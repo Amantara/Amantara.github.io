@@ -1,0 +1,10 @@
+# Projects Folder
+
+This folder contains my Power BI project files (.pbix).
+
+You can download and explore them once they are uploaded here:
+- tourism_report.pbix
+- air_quality.pbix
+- water_quality.pbix
+
+Stay tuned for updates!
