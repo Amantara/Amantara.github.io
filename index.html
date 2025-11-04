@@ -1,333 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Hi! I’m Janet Amantara</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Janet Amantara's data portfolio – showcasing projects in data collection, processing, and visualization.">
-  <meta name="keywords" content="Janet Amantara, data portfolio, data collection, data processing, data visualization, analytics, projects, data analysis">
-  <meta name="author" content="Janet Amantara">
-  <style>
-    :root {
-      /* Modern Minimal Theme */
-      --primary: #3B82F6;
-      --text: #1E293B;
-      --background: #F9FAFB;
-      --card: #FFFFFF;
-      --border: #E5E7EB;
-      --accent: #93C5FD;
-    }
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-grid">
 
-    /* Basic page */
-    html, body { margin: 0; padding: 0; }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    /* Header */
-    header {
-      background: var(--primary);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2.2rem 1rem 1.2rem 1rem;
-      text-align: center;
-    }
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-    .main-title {
-      margin: 0.2em 0 0.1em 0;
-      font-size: 2.4em;
-      letter-spacing: 1px;
-      color: white;
-    }
-    .subtitle {
-      font-size: 1.05em;
-      color: rgba(255,255,255,0.92);
-      margin-top: 0.5em;
-      max-width: 760px;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: var(--accent); }
-
-    /* Sections */
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem 1.2rem;
-      background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-      border: 1px solid var(--border);
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h2 { color: var(--primary); margin-top: 0; }
-
-    /* Activities */
-    .activities {
-      display: flex;
-      gap: 1.5rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-    .activity {
-      flex: 1;
-      background: var(--background);
-      border-radius: 10px;
-      padding: 1.2rem;
-      text-align: center;
-      border: 1px solid var(--border);
-    }
-    .activity h3 { color: var(--primary); margin: 0 0 0.5rem 0; }
-
-    /* Projects grid with hover overlay */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      border: 1px solid var(--border);
-      background: var(--card);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      display: block; /* anchor styled as block if used on <a> */
-      text-decoration: none;
-      color: inherit;
-    }
-    .project-card:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(0,0,0,0.08); }
-
-    .project-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.45s ease;
-    }
-    .project-card:hover img { transform: scale(1.06); }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(59,130,246,0.9);
-      color: white;
-      opacity: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 1.2rem;
-      text-align: center;
-      transition: opacity 0.32s ease, transform 0.32s ease;
-      transform: translateY(8px);
-    }
-    .project-card:hover .overlay { opacity: 1; transform: translateY(0); }
-    .overlay h3 { margin: 0 0 0.4rem 0; font-size: 1.15rem; }
-    .overlay p { margin: 0; font-size: 0.95rem; line-height: 1.4; }
-
-    /* Contact */
-    .contact-links { margin: 1rem 0 0.5rem 0; }
-    .contact-links a { color: var(--primary); text-decoration: none; font-weight: 600; margin-right: 1rem; }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-      background: var(--background);
-      padding: 1.2rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .contact-form label { font-weight: 600; }
-    .contact-form input, .contact-form textarea {
-      padding: 0.75rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 1rem;
-      background: #ffffff;
-      color: var(--text);
-      resize: vertical;
-    }
-    .contact-form button {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.85rem;
-      font-size: 1.05rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 700;
-    }
-    .contact-form button:hover { background: var(--accent); color: var(--text); }
-
-    footer {
-      background: transparent;
-      color: #64748B;
-      text-align: center;
-      padding: 1.2rem 0;
-      margin-top: 1.5rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 800px) {
-      .activities, .project-grid { gap: 1rem; }
-      .project-card img { height: 180px; }
-      section { margin: 1rem 0; padding: 1.2rem; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <!-- profile photo from images/ folder (you uploaded me.png there) -->
-    <img src="images/me.png" alt="Photo of Janet Amantara" class="profile-pic">
-    <h1 class="main-title">Hi! I’m Janet Amantara</h1>
-    <p class="subtitle">
-      I collect, process, analyze, and visualize data with precision to drive insightful decisions.
-    </p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#activities">Activities</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I completed the Data Analysis Program at Generation Ghana, gaining practical experience with tools such as Excel, Python, SQL and Power BI. 
-      Through hands-on projects, I’ve developed skills in data visualization, dashboard design, and translating datasets into actionable insights. I’m committed to continuous learning, deepening my technical expertise, and helping organizations unlock the value of their data. 
-      As a freelancer, I enjoy the freedom to work across diverse industries while building lasting relationships and delivering solutions that make a measurable impact. 
-    </p>
-  </section>
-
-  <section id="activities">
-    <h2>My Analysis Process</h2>
-    <div class="activities">
-      <div class="activity">
-        <h3>Collect</h3>
-        <p>Describe your data collection process, sources, or methods.</p>
+    <!-- Project 1: Lifestyle, Stress & GPA -->
+    <a class="project-card" href="https://github.com/Amantara/Lifestyle-Stress-GPA" target="_blank" rel="noopener noreferrer">
+      <img src="images/correlation_GPA_stress_heatmap.png" alt="Lifestyle Stress GPA Analysis">
+      <div class="overlay">
+        <h3>Lifestyle, Stress & GPA Analysis</h3>
+        <p>
+          This project explores how students’ daily habits such as study time, sleep, social activity, and physical exercise relate to stress levels and GPA. 
+          Statistical tests and correlations reveal study habits and stress as key factors influencing academic performance.
+        </p>
       </div>
-      <div class="activity">
-        <h3>Process</h3>
-        <p>Explain how you process, clean, or transform data.</p>
+    </a>
+
+    <!-- Project 2: Nairobi Connect -->
+    <a class="project-card" href="https://github.com/Amantara/Amantara.github.io/tree/main/projects/Nairobi%20connect" target="_blank" rel="noopener noreferrer">
+      <img src="images/category performance.png" alt="Nairobi Connect Project">
+      <div class="overlay">
+        <h3>Nairobi Connect Performance Dashboard</h3>
+        <p>
+          A Power BI dashboard analyzing category performance across regions for Nairobi Connect. 
+          The report highlights profitability trends and regional strengths to guide data-driven business decisions.
+        </p>
       </div>
-      <div class="activity">
-        <h3>Visualise</h3>
-        <p>Share your visualization strategy or favorite tools.</p>
+    </a>
+
+    <!-- Project 3: Tourism Performance Report (original Project 1) -->
+    <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Tourism%20Performance%20Report.pbix?csf=1&web=1&e=1ATh5o" target="_blank" rel="noopener noreferrer">
+      <img src="images/tourism_report.png" alt="Tourism Performance Report">
+      <div class="overlay">
+        <h3>Tourism Performance Report</h3>
+        <p>
+          This project aims to find peak performance at a tourist site taking into consideration tourist visits, customer satisfaction, and revenue generated. 
+          It identifies high and low-performing months with recommendations to drive revenue across regions and seasons.
+        </p>
       </div>
-    </div>
-  </section>
+    </a>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <!-- Each project card is an anchor that opens in a new tab -->
-      <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Tourism%20Performance%20Report.pbix?csf=1&web=1&e=1ATh5o" target="_blank" rel="noopener noreferrer">
-        <img src="images/tourism_report.png" alt="Tourism Performance Report">
-        <div class="overlay">
-          <h3>Tourism Performance Report</h3>
-          <p>
-            This project aims to find peak performance at a tourist site taking into considerations tourist visits, customer satisfaction and revenue generated. 
-            The relationship between customer visits, satisfaction and revenue is visualised across months and regions. High performing and low performing months were identified with recommendations to drive revenue across seasons and regions.
-          </p>
-        </div>
-      </a>
+    <!-- Project 4: Air Quality Management Report (original Project 2) -->
+    <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Air%20Quality%20Management%20Report.pbix?csf=1&web=1&e=9Q0WYc" target="_blank" rel="noopener noreferrer">
+      <img src="images/air_quality.png" alt="Air Quality Management Report">
+      <div class="overlay">
+        <h3>Air Quality Management Report</h3>
+        <p>
+          This project investigates air pollutant trends across locations and time. 
+          Visual insights and recommendations are provided for improving air quality management and monitoring.
+        </p>
+      </div>
+    </a>
 
-      <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Air%20Quality%20Management%20Report.pbix?csf=1&web=1&e=9Q0WYc" target="_blank" rel="noopener noreferrer">
-        <img src="images/air_quality.png" alt="Air Quality Management Report">
-        <div class="overlay">
-          <h3>Air Quality Management Report</h3>
-          <p>
-            This project was conducted with the purpose of finding trends of pollutant levels in air across locations and time. Trends are visualized and recommendations provided for monitoring and management.
-          </p>
-        </div>
-      </a>
+    <!-- Project 5: Water Quality and Fish Population (original Project 3) -->
+    <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Water%20Quality%20and%20Fish%20Population%20Dashboard.pbix?csf=1&web=1&e=gPLtfb" target="_blank" rel="noopener noreferrer">
+      <img src="images/water_quality.png" alt="Water Quality and Fish Population">
+      <div class="overlay">
+        <h3>Water Quality Parameters and their Effects on Fish Population</h3>
+        <p>
+          This project analyzes how water quality parameters such as rainfall, turbidity, and pollution events impact fish populations. 
+          Findings guide better ecosystem and aquatic resource management.
+        </p>
+      </div>
+    </a>
 
-      <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Water%20Quality%20and%20Fish%20Population%20Dashboard.pbix?csf=1&web=1&e=gPLtfb" target="_blank" rel="noopener noreferrer">
-        <img src="images/water_quality.png" alt="Water Quality and Fish Population">
-        <div class="overlay">
-          <h3>Water Quality Parameters and their Effects on Fish Population</h3>
-          <p>
-            This project investigated the various water quality parameters and how they affect the population of fish at different locations across a two month period. Rainfall, turbidity, pollution events and land use were studied to identify possible effects on fish populations.
-          </p>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <div class="contact-links">
-      <a href="mailto:amantarajaneta@gmail.com" target="_blank" rel="noopener noreferrer">E-mail</a>
-      <a href="https://www.linkedin.com/in/janet-aneribabono-amantara/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-
-    <!-- Formspree form (uses your endpoint) -->
-    <form class="contact-form" action="https://formspree.io/f/mwprwebe" method="POST">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="_replyto" placeholder="Enter your email" required>
-
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="5" placeholder="Type your message" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    &copy; 2025 Amantara. All rights reserved.
-  </footer>
-
-  <script>
-    // Fade-in on scroll for sections
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('section').forEach(sec => observer.observe(sec));
-  </script>
-</body>
-</html>
+  </div>
+</section>
