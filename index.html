@@ -10,9 +10,9 @@
 
   <style>
     :root {
-      /* Earthy Professional Theme */
-      --primary: #3E4E3E;    /* Army Green */
-      --secondary: #D97706;  /* Burnt Orange */
+      /* Earthy Professional Theme (lighter green) */
+      --primary: #6B8F6B;    /* softer army green */
+      --secondary: #D97706;  /* burnt orange */
       --background: #FAFAF8; /* Soft Neutral */
       --card: #FFFFFF;
       --text: #1F2937;
@@ -121,6 +121,7 @@
       text-align: center;
       border: 1px solid var(--border);
       transition: transform 0.25s ease;
+      min-width: 220px;
     }
 
     .activity:hover {
@@ -133,7 +134,7 @@
       margin: 0 0 0.5rem 0;
     }
 
-    /* Projects grid */
+    /* Projects */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -152,6 +153,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
+      align-items: stretch;
     }
 
     .project-card:hover {
@@ -166,18 +168,48 @@
       margin: 1rem 1rem 0.5rem 1rem;
       border-left: 4px solid var(--secondary);
       padding-left: 0.6rem;
+      background: linear-gradient(90deg, rgba(0,0,0,0.02), transparent);
+      border-radius: 6px;
     }
 
     .project-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
+      display: block;
+      margin-top: 0.6rem;
     }
 
     .project-card p {
-      padding: 0 1rem 1rem 1rem;
+      padding: 0.9rem 1rem 1.2rem 1rem;
       font-size: 0.95rem;
       color: #374151;
+      margin: 0;
+    }
+
+    /* Links (project buttons) */
+    .project-links {
+      display: flex;
+      gap: 0.6rem;
+      padding: 0.7rem 1rem 1rem 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      border: none;
+      padding: 0.55rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      text-decoration: none;
+      color: white;
+      background: var(--secondary);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(217,119,6,0.18);
     }
 
     /* Contact */
@@ -248,6 +280,7 @@
         margin: 1rem 0;
         padding: 1.5rem;
       }
+      .project-card img { height: 160px; }
     }
   </style>
 </head>
@@ -267,11 +300,11 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I completed the Data Analysis Program at Generation Ghana, gaining practical experience with tools such as Excel, Python, SQL and Power BI. Through hands-on projects, I’ve developed skills in data visualization, dashboard design, and translating datasets into actionable insights. I’m committed to continuous learning, deepening my technical expertise, and helping organizations unlock the value of their data.</p>
+    <p>I completed the Data Analysis Program at Generation Ghana, gaining practical experience with tools such as Excel, Python, SQL and Power BI. Through hands-on projects, I’ve developed skills in data visualization, dashboard design, and translating datasets into actionable insights. I’m committed to continuous learning and helping organizations unlock the value of their data.</p>
   </section>
 
   <section id="activities">
-    <h2>My Analysis Process</h2>
+    <h2>My Data Analysis Process</h2>
     <div class="activities">
       <div class="activity">
         <h3>Collect</h3>
@@ -293,34 +326,54 @@
 
     <div class="project-grid">
 
-      <a class="project-card" href="#" target="_blank">
-        <div class="project-title">Lifestyle, Stress Levels & Academic Performance</div>
-        <img src="images/lifestyle.png" alt="Lifestyle Project">
-        <p>Explores correlations between students’ stress levels, lifestyle habits, and academic performance through Power BI dashboards, identifying key predictors of GPA variance.</p>
+      <!-- Project 1: Lifestyle–Stress–GPA -->
+      <a class="project-card" href="https://github.com/Amantara/Lifestyle-Stress-GPA" target="_blank" rel="noopener noreferrer">
+        <div class="project-title">Lifestyle, Stress & GPA Analysis</div>
+        <img src="images/correlation_GPA_stress_heatmap.png" alt="Lifestyle Stress GPA Analysis">
+        <p>Explores relationships between students’ daily habits, stress levels, and GPA using statistical tests and visualizations. Includes heatmaps and correlation analysis to identify key academic drivers.</p>
+        <div class="project-links">
+          <span class="btn" onclick="window.open('https://github.com/Amantara/Lifestyle-Stress-GPA','_blank')">View Project</span>
+        </div>
       </a>
 
-      <a class="project-card" href="#" target="_blank">
-        <div class="project-title">Nairobi Connect – Traffic Data Insights</div>
-        <img src="images/nairobi.png" alt="Nairobi Connect Project">
-        <p>Analyzed transportation data across Nairobi to uncover trends in traffic congestion, commute patterns, and potential optimization opportunities using Power BI visuals.</p>
+      <!-- Project 2: Nairobi Connect -->
+      <a class="project-card" href="https://github.com/Amantara/Amantara.github.io/tree/main/projects/Nairobi%20connect" target="_blank" rel="noopener noreferrer">
+        <div class="project-title">Nairobi Connect – Category Performance</div>
+        <img src="images/category%20performance.png" alt="Nairobi Connect Category Performance">
+        <p>Power BI dashboard focused on category performance for Nairobi Connect, highlighting regional strengths and recommending actions to improve service performance.</p>
+        <div class="project-links">
+          <span class="btn" onclick="window.open('https://github.com/Amantara/Amantara.github.io/tree/main/projects/Nairobi%20connect','_blank')">View Project</span>
+        </div>
       </a>
 
-      <a class="project-card" href="images/tourism_report.png" target="_blank">
+      <!-- Project 3: Tourism Performance Report (original Project 1) -->
+      <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Tourism%20Performance%20Report.pbix?csf=1&web=1&e=1ATh5o" target="_blank" rel="noopener noreferrer">
         <div class="project-title">Tourism Performance Report</div>
         <img src="images/tourism_report.png" alt="Tourism Performance Report">
         <p>Finds peak performance at tourist sites considering visits, satisfaction, and revenue. Identifies high and low performing seasons and provides data-driven recommendations.</p>
+        <div class="project-links">
+          <span class="btn" onclick="window.open('https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Tourism%20Performance%20Report.pbix?csf=1&web=1&e=1ATh5o','_blank')">Open Report</span>
+        </div>
       </a>
 
-      <a class="project-card" href="images/air_quality.png" target="_blank">
+      <!-- Project 4: Air Quality Management Report (original Project 2) -->
+      <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Air%20Quality%20Management%20Report.pbix?csf=1&web=1&e=9Q0WYc" target="_blank" rel="noopener noreferrer">
         <div class="project-title">Air Quality Management Report</div>
         <img src="images/air_quality.png" alt="Air Quality Management Report">
-        <p>Examines air pollutant trends across locations and seasons. Visualizes data patterns and provides actionable strategies for air quality improvement.</p>
+        <p>Analyzes pollutant trends across locations and time and provides recommendations for monitoring and policy improvements to protect air quality.</p>
+        <div class="project-links">
+          <span class="btn" onclick="window.open('https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Air%20Quality%20Management%20Report.pbix?csf=1&web=1&e=9Q0WYc','_blank')">Open Report</span>
+        </div>
       </a>
 
-      <a class="project-card" href="images/water_quality.png" target="_blank">
-        <div class="project-title">Water Quality & Fish Population Dashboard</div>
+      <!-- Project 5: Water Quality and Fish Population (original Project 3) -->
+      <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Water%20Quality%20and%20Fish%20Population%20Dashboard.pbix?csf=1&web=1&e=gPLtfb" target="_blank" rel="noopener noreferrer">
+        <div class="project-title">Water Quality & Fish Population</div>
         <img src="images/water_quality.png" alt="Water Quality and Fish Population">
-        <p>Investigates water quality parameters and their impact on fish populations, highlighting key environmental factors that influence aquatic life health.</p>
+        <p>Investigates how water quality parameters (turbidity, pollution events, rainfall) affect fish populations and suggests strategies for aquatic resource management.</p>
+        <div class="project-links">
+          <span class="btn" onclick="window.open('https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Water%20Quality%20and%20Fish%20Population%20Dashboard.pbix?csf=1&web=1&e=gPLtfb','_blank')">Open Report</span>
+        </div>
       </a>
 
     </div>
@@ -332,6 +385,7 @@
       <a href="mailto:amantarajaneta@gmail.com">E-mail</a>
       <a href="https://www.linkedin.com/in/janet-aneribabono-amantara/" target="_blank">LinkedIn</a>
     </div>
+
     <form class="contact-form" action="https://formspree.io/f/mwprwebe" method="POST">
       <label for="name">Your Name</label>
       <input type="text" id="name" name="name" placeholder="Enter your name" required>
