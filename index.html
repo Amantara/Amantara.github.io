@@ -1,357 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Hi! I’m Janet Amantara</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Janet Amantara's data portfolio – showcasing projects in data collection, processing, and visualization.">
-<meta name="keywords" content="Janet Amantara, data portfolio, data collection, data processing, data visualization, analytics, projects, data analysis">
-<meta name="author" content="Janet Amantara">
+  <meta charset="UTF-8" />
+  <title>Hi! I’m Janet Amantara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Janet Amantara's data portfolio – showcasing projects in data collection, processing, and visualization.">
+  <meta name="keywords" content="Janet Amantara, data portfolio, data collection, data processing, data visualization, analytics, projects, data analysis">
+  <meta name="author" content="Janet Amantara">
 
-<style>
-:root {
-  --primary: #3B82F6;
-  --text: #1E293B;
-  --background: #F9FAFB;
-  --card: #FFFFFF;
-  --border: #E5E7EB;
-  --accent: #93C5FD;
-}
+  <style>
+    :root {
+      /* Earthy Professional Theme */
+      --primary: #3E4E3E;    /* Army Green */
+      --secondary: #D97706;  /* Burnt Orange */
+      --background: #FAFAF8; /* Soft Neutral */
+      --card: #FFFFFF;
+      --text: #1F2937;
+      --border: #E5E7EB;
+    }
 
-/* Basic page */
-html, body {
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--background);
-  color: var(--text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    /* Basic page setup */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-/* Header */
-header {
-  background: var(--primary);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2.2rem 1rem 1.2rem 1rem;
-  text-align: center;
-}
-.profile-pic {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 4px solid white;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
-.main-title {
-  margin: 0.2em 0 0.1em 0;
-  font-size: 2.4em;
-  color: white;
-}
-.subtitle {
-  font-size: 1.05em;
-  color: rgba(255,255,255,0.92);
-  margin-top: 0.5em;
-  max-width: 760px;
-}
-nav {
-  margin-top: 1rem;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 1rem;
-  font-weight: 600;
-  transition: color 0.2s;
-}
-nav a:hover { color: var(--accent); }
+    /* Header */
+    header {
+      background: var(--primary);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1rem 1.5rem 1rem;
+      text-align: center;
+    }
 
-/* Sections */
-section {
-  width: 90%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem 1.5rem;
-  background: var(--card);
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-  border: 1px solid var(--border);
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-h2 { color: var(--primary); margin-top: 0; }
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
 
-/* Activities */
-.activities {
-  display: flex;
-  gap: 1.5rem;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.activity {
-  flex: 1;
-  min-width: 240px;
-  background: var(--background);
-  border-radius: 10px;
-  padding: 1.2rem;
-  text-align: center;
-  border: 1px solid var(--border);
-}
-.activity h3 {
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
+    .main-title {
+      font-size: 2.5em;
+      margin: 0.2em 0 0.1em 0;
+      letter-spacing: 1px;
+    }
 
-/* Projects */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-.project-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  border: 1px solid var(--border);
-  background: var(--card);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
-}
-.project-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.45s ease;
-}
-.project-card:hover img { transform: scale(1.06); }
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(59,130,246,0.9);
-  color: white;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1.2rem;
-  text-align: center;
-  transition: opacity 0.32s ease, transform 0.32s ease;
-  transform: translateY(8px);
-}
-.project-card:hover .overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-.overlay h3 {
-  margin: 0 0 0.4rem 0;
-  font-size: 1.15rem;
-}
-.overlay p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
+    .subtitle {
+      font-size: 1.05em;
+      color: rgba(255,255,255,0.92);
+      max-width: 740px;
+      margin-top: 0.6em;
+    }
 
-/* Contact */
-.contact-links { margin: 1rem 0 0.5rem 0; }
-.contact-links a {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 600;
-  margin-right: 1rem;
-}
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
-  background: var(--background);
-  padding: 1.2rem;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.contact-form input, .contact-form textarea {
-  padding: 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 1rem;
-  background: #fff;
-  color: var(--text);
-}
-.contact-form button {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 0.85rem;
-  font-size: 1.05rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 700;
-}
-.contact-form button:hover {
-  background: var(--accent);
-  color: var(--text);
-}
+    nav {
+      margin-top: 1rem;
+    }
 
-footer {
-  background: transparent;
-  color: #64748B;
-  text-align: center;
-  padding: 1.2rem 0;
-  margin-top: 1.5rem;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: color 0.25s;
+    }
 
-/* Responsive */
-@media (max-width: 800px) {
-  .activities, .project-grid { gap: 1rem; }
-  .project-card img { height: 180px; }
-  section { width: 95%; margin: 1rem auto; padding: 1.2rem; }
-}
-</style>
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    /* Sections */
+    section {
+      max-width: 1000px;
+      margin: 2.5rem auto;
+      padding: 2rem 2rem;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-top: 0;
+      border-left: 5px solid var(--secondary);
+      padding-left: 0.6rem;
+    }
+
+    /* Activities */
+    .activities {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .activity {
+      flex: 1;
+      background: var(--background);
+      border-radius: 10px;
+      padding: 1.2rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: transform 0.25s ease;
+    }
+
+    .activity:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    .activity h3 {
+      color: var(--secondary);
+      margin: 0 0 0.5rem 0;
+    }
+
+    /* Projects grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+    }
+
+    .project-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.15rem;
+      margin: 1rem 1rem 0.5rem 1rem;
+      border-left: 4px solid var(--secondary);
+      padding-left: 0.6rem;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card p {
+      padding: 0 1rem 1rem 1rem;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    /* Contact */
+    .contact-links {
+      margin: 1rem 0 0.5rem 0;
+    }
+
+    .contact-links a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 1rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+      background: var(--background);
+      padding: 1.2rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+    }
+
+    .contact-form input, .contact-form textarea {
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1rem;
+      background: #ffffff;
+      color: var(--text);
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 0.85rem;
+      font-size: 1.05rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .contact-form button:hover {
+      background: #F59E0B;
+    }
+
+    footer {
+      background: transparent;
+      color: #64748B;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 800px) {
+      section {
+        margin: 1rem 0;
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header>
-  <img src="images/me.png" alt="Photo of Janet Amantara" class="profile-pic">
-  <h1 class="main-title">Hi! I’m Janet Amantara</h1>
-  <p class="subtitle">I collect, process, analyze, and visualize data with precision to drive insightful decisions.</p>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#activities">Activities</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <header>
+    <img src="images/me.png" alt="Photo of Janet Amantara" class="profile-pic">
+    <h1 class="main-title">Hi! I’m Janet Amantara</h1>
+    <p class="subtitle">I collect, process, analyze, and visualize data with precision to drive insightful decisions.</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#activities">Process</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>I completed the Data Analysis Program at Generation Ghana, gaining practical experience with tools such as Excel, Python, SQL, and Power BI. Through hands-on projects, I’ve developed skills in data visualization, dashboard design, and translating datasets into actionable insights. I’m committed to continuous learning, deepening my technical expertise, and helping organizations unlock the value of their data.</p>
-</section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I completed the Data Analysis Program at Generation Ghana, gaining practical experience with tools such as Excel, Python, SQL and Power BI. Through hands-on projects, I’ve developed skills in data visualization, dashboard design, and translating datasets into actionable insights. I’m committed to continuous learning, deepening my technical expertise, and helping organizations unlock the value of their data.</p>
+  </section>
 
-<section id="activities">
-  <h2>My Data Analysis Process</h2>
-  <div class="activities">
-    <div class="activity">
-      <h3>Collect</h3>
-      <p>Gather and structure data from reliable, diverse sources.</p>
+  <section id="activities">
+    <h2>My Analysis Process</h2>
+    <div class="activities">
+      <div class="activity">
+        <h3>Collect</h3>
+        <p>Gather data from multiple sources ensuring completeness and accuracy.</p>
+      </div>
+      <div class="activity">
+        <h3>Process</h3>
+        <p>Clean, structure, and transform data to prepare it for analysis.</p>
+      </div>
+      <div class="activity">
+        <h3>Visualize</h3>
+        <p>Use visual storytelling to translate insights into actionable outcomes.</p>
+      </div>
     </div>
-    <div class="activity">
-      <h3>Process</h3>
-      <p>Clean, validate, and transform data for quality analysis.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-grid">
+
+      <a class="project-card" href="#" target="_blank">
+        <div class="project-title">Lifestyle, Stress Levels & Academic Performance</div>
+        <img src="images/lifestyle.png" alt="Lifestyle Project">
+        <p>Explores correlations between students’ stress levels, lifestyle habits, and academic performance through Power BI dashboards, identifying key predictors of GPA variance.</p>
+      </a>
+
+      <a class="project-card" href="#" target="_blank">
+        <div class="project-title">Nairobi Connect – Traffic Data Insights</div>
+        <img src="images/nairobi.png" alt="Nairobi Connect Project">
+        <p>Analyzed transportation data across Nairobi to uncover trends in traffic congestion, commute patterns, and potential optimization opportunities using Power BI visuals.</p>
+      </a>
+
+      <a class="project-card" href="images/tourism_report.png" target="_blank">
+        <div class="project-title">Tourism Performance Report</div>
+        <img src="images/tourism_report.png" alt="Tourism Performance Report">
+        <p>Finds peak performance at tourist sites considering visits, satisfaction, and revenue. Identifies high and low performing seasons and provides data-driven recommendations.</p>
+      </a>
+
+      <a class="project-card" href="images/air_quality.png" target="_blank">
+        <div class="project-title">Air Quality Management Report</div>
+        <img src="images/air_quality.png" alt="Air Quality Management Report">
+        <p>Examines air pollutant trends across locations and seasons. Visualizes data patterns and provides actionable strategies for air quality improvement.</p>
+      </a>
+
+      <a class="project-card" href="images/water_quality.png" target="_blank">
+        <div class="project-title">Water Quality & Fish Population Dashboard</div>
+        <img src="images/water_quality.png" alt="Water Quality and Fish Population">
+        <p>Investigates water quality parameters and their impact on fish populations, highlighting key environmental factors that influence aquatic life health.</p>
+      </a>
+
     </div>
-    <div class="activity">
-      <h3>Visualize</h3>
-      <p>Design insightful dashboards to communicate findings clearly.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-links">
+      <a href="mailto:amantarajaneta@gmail.com">E-mail</a>
+      <a href="https://www.linkedin.com/in/janet-aneribabono-amantara/" target="_blank">LinkedIn</a>
     </div>
-  </div>
-</section>
+    <form class="contact-form" action="https://formspree.io/f/mwprwebe" method="POST">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="project-grid">
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="_replyto" placeholder="Enter your email" required>
 
-    <!-- Project 1: Lifestyle–Stress–GPA -->
-    <a class="project-card" href="https://github.com/Amantara/Lifestyle-Stress-GPA" target="_blank" rel="noopener noreferrer">
-      <img src="images/correlation_GPA_stress_heatmap.png" alt="Lifestyle Stress and GPA Analysis">
-      <div class="overlay">
-        <h3>Lifestyle, Stress, and GPA Analysis</h3>
-        <p>Analyzed relationships between students’ daily habits, stress levels, and GPA using Python and statistical tests to uncover key academic performance drivers.</p>
-      </div>
-    </a>
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Type your message" required></textarea>
 
-    <!-- Project 2: Nairobi Connect -->
-    <a class="project-card" href="https://github.com/Amantara/Amantara.github.io/tree/main/projects/Nairobi%20connect" target="_blank" rel="noopener noreferrer">
-      <img src="images/category performance.png" alt="Nairobi Connect Project">
-      <div class="overlay">
-        <h3>Nairobi Connect</h3>
-        <p>Designed a city data visualization platform integrating regional metrics to highlight trends and performance insights for stakeholders.</p>
-      </div>
-    </a>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
-    <!-- Project 3: Tourism Performance Report -->
-    <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Tourism%20Performance%20Report.pbix?csf=1&web=1&e=1ATh5o" target="_blank" rel="noopener noreferrer">
-      <img src="images/tourism_report.png" alt="Tourism Performance Report">
-      <div class="overlay">
-        <h3>Tourism Performance Report</h3>
-        <p>Analyzed tourist visits, satisfaction, and revenue to identify high and low performing seasons, providing actionable recommendations to boost performance.</p>
-      </div>
-    </a>
+  <footer>
+    &copy; 2025 Amantara. All rights reserved.
+  </footer>
 
-    <!-- Project 4: Air Quality Management Report -->
-    <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Air%20Quality%20Management%20Report.pbix?csf=1&web=1&e=9Q0WYc" target="_blank" rel="noopener noreferrer">
-      <img src="images/air_quality.png" alt="Air Quality Management Report">
-      <div class="overlay">
-        <h3>Air Quality Management Report</h3>
-        <p>Studied pollutant trends across locations and time, offering recommendations for monitoring and environmental policy improvement.</p>
-      </div>
-    </a>
+  <script>
+    // Fade-in on scroll for sections
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
 
-    <!-- Project 5: Water Quality and Fish Population -->
-    <a class="project-card" href="https://generationye-my.sharepoint.com/:u:/r/personal/janetan_genstudents_org/Documents/Water%20Quality%20and%20Fish%20Population%20Dashboard.pbix?csf=1&web=1&e=gPLtfb" target="_blank" rel="noopener noreferrer">
-      <img src="images/water_quality.png" alt="Water Quality and Fish Population">
-      <div class="overlay">
-        <h3>Water Quality and Fish Population</h3>
-        <p>Investigated how water quality parameters like turbidity and pollution affect fish populations, providing insights for aquatic resource management.</p>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact Me</h2>
-  <div class="contact-links">
-    <a href="mailto:amantarajaneta@gmail.com" target="_blank">E-mail</a>
-    <a href="https://www.linkedin.com/in/janet-aneribabono-amantara/" target="_blank">LinkedIn</a>
-  </div>
-
-  <form class="contact-form" action="https://formspree.io/f/mwprwebe" method="POST">
-    <label for="name">Your Name</label>
-    <input type="text" id="name" name="name" required>
-    <label for="email">Your Email</label>
-    <input type="email" id="email" name="_replyto" required>
-    <label for="message">Your Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-
-<footer>&copy; 2025 Amantara. All rights reserved.</footer>
-
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('section').forEach(sec => observer.observe(sec));
-</script>
+    document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+  </script>
 </body>
 </html>
